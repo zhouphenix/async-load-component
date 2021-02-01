@@ -49,33 +49,32 @@ import SyncCmp1 from './components/SyncCmt1'
 如一下3种方式
 ```
 components: {
+// 异步导入组件方式 ①
+'async-cmp0': resolve => {
+	// 向 `resolve` 回调传递组件定义
+	setTimeout(_ => {
+		console.log("开始加载异步组件0: ");
+		resolve({
+			name: 'AsyncCmp0',
+			template: '<div>I am SyncCmp0!</div>',
+			mounted() {
+				console.log("异步组件0加载完成: ");
+			}
+		})
+	}, 3000)
 
-	// 异步导入组件方式 ①
-	'async-cmp0': resolve => {
-		// 向 `resolve` 回调传递组件定义
-		setTimeout(_ => {
-			console.log("开始加载异步组件0: ");
-			resolve({
-				name: 'AsyncCmp0',
-				template: '<div>I am SyncCmp0!</div>',
-				mounted() {
-					console.log("异步组件0加载完成: ");
-				}
-			})
-		}, 3000)
-
-	},
-	// 异步导入组件方式 ②
-	'async-cmp1': (resolve, reject) => {
-		// 这个特殊的 `require` 语法将会告诉 webpack
-		// 自动将你的构建代码切割成多个包，这些包
-		// 会通过 Ajax 请求加载
-		require(['./components/AsyncCmt1'], resolve)
-	},
-	// 异步导入组件方式 ③
-	'async-cmp2': () => import('./components/AsyncCmt2'), // 这个动态导入会返回一个 `Promise` 对象。
-	// 'async-cmp3': () => import('./components/AsyncPluginCmt'), // 这个动态导入会返回一个 `Promise` 对象。
-	}
+},
+// 异步导入组件方式 ②
+'async-cmp1': (resolve, reject) => {
+	// 这个特殊的 `require` 语法将会告诉 webpack
+	// 自动将你的构建代码切割成多个包，这些包
+	// 会通过 Ajax 请求加载
+	require(['./components/AsyncCmt1'], resolve)
+},
+// 异步导入组件方式 ③
+'async-cmp2': () => import('./components/AsyncCmt2'), // 这个动态导入会返回一个 `Promise` 对象。
+// 'async-cmp3': () => import('./components/AsyncPluginCmt'), // 这个动态导入会返回一个 `Promise` 对象。
+}
 ```
 
 ### 异步加载服务器端未编译的组件
@@ -94,19 +93,19 @@ components: {
 最后读取'/public/project.properties' 文件数据：
 
 ```
-	this.$http.get('/project.properties').then(res => {
-	 console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
-	})
+this.$http.get('/project.properties').then(res => {
+ console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
+})
 ```
 
 或
 
 ```
-	import Vue from 'vue'
-	// ...
-	Vue.http.get('/project.properties').then(res => {
-	 console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
-	})
+import Vue from 'vue'
+// ...
+Vue.http.get('/project.properties').then(res => {
+ console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
+})
 ```
 
 ### 2.github图片不显示，可参考配置 [解决github中图片不显示的问题](https://www.cnblogs.com/xiaozhengtongxue/p/13442763.html)
