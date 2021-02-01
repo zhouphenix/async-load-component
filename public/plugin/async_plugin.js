@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d225df7"],{e5f7:function(n,e,t){"use strict";t.r(e);var u=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[n._v("我是异步方式加载的插件组件AsyncPluginCmt")])},c=[],l={name:"AsyncPluginCmt",mounted:function(){console.log("异步组件AsyncPluginCmt加载完成: ")}},o=l,s=t("2877"),i=Object(s["a"])(o,u,c,!1,null,null,null);e["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d225df7.e922eef3.js.map
