@@ -108,3 +108,30 @@ components: {
 	 console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
 	})
 ```
+
+### 2.github图片不显示，可参考配置 [解决github中图片不显示的问题](https://www.cnblogs.com/xiaozhengtongxue/p/13442763.html)
+> 修改本地的hosts文件
+打开路径 C:\Windows\System32\drivers\etc\hosts（windows10系统可能为C:\Windows\System32\drivers\etc\HOSTS）
+用记事本打开hosts文件（打开方式选择“记事本”），在文件末尾添加：
+
+```
+# GitHub Start
+192.30.253.112    Build software better, together
+192.30.253.119     gist.github.com
+151.101.184.133     assets-cdn.github.com
+151.101.184.133     raw.githubusercontent.com
+151.101.184.133     gist.githubusercontent.com
+151.101.184.133     cloud.githubusercontent.com
+151.101.184.133     camo.githubusercontent.com
+151.101.184.133     avatars0.githubusercontent.com
+151.101.184.133     avatars1.githubusercontent.com
+151.101.184.133     avatars2.githubusercontent.com
+151.101.184.133     avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+151.101.184.133     avatars5.githubusercontent.com
+151.101.184.133     avatars6.githubusercontent.com
+151.101.184.133     avatars7.githubusercontent.com
+151.101.184.133     avatars8.githubusercontent.com
+# GitHub End
+
+```
