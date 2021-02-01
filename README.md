@@ -97,9 +97,10 @@ components: {
 	this.$http.get('/project.properties').then(res => {
 	 console.log("json数据为:" + res.body)//此处的res对象包含了json的文件信息和数据，我们需要的json数据存在于body属性中
 	})
-	```
+```
 
 或
+
 ```
 	import Vue from 'vue'
 	// ...
