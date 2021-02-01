@@ -1,9 +1,9 @@
-# default
+# Vue 异步组件 example项目
 ## 异步组件示例
 示例包括异步加载本地组件、服务器端模板动态渲染
 
 ## 开局放大招
-![示例图片](./public/images/img_p1.jpg)
+![示例图片](public/images/img_p1.jpg)
 
 ## Project setup
 ```
@@ -39,7 +39,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 如， 
 ``` 
 import SyncCmp1 from './components/SyncCmt1' 
-...{
+...
+{
 	components: {SyncCmp1}  // 注册
 }
 ```
